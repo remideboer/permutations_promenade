@@ -1,0 +1,11 @@
+{
+    "autoload": {
+        "psr-4" : {
+            "RemiDeBoer\\PermutationPromenade\\": "src/",
+            "RemiDeBoer\\PermutationPromenade\\Test\\": "test/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "8"
+    }
+}
