@@ -11,7 +11,7 @@ use InvalidArgumentException;
  */
 class Permutator {
 
-    const ZERO_STRING_EXCEPTION = "can not spin a zero string";
+    const ZERO_STRING_EXCEPTION = "can not process a string of zero length";
     const FIRST_CHAR_POSITION = 0;
     const LAST_CHAR_POSITION = -1;
 
@@ -22,16 +22,21 @@ class Permutator {
      * @param string $string non-unicode
      * @return string
      */
-    public static function spin(string $string): string {
+    public static function spin(string $string, int $size = 1): string {
 
         Permutator::validateNonZeroString($string);
-        
-        return $string[self::LAST_CHAR_POSITION]
+  
+        // keep rotating till no longer needed
+        for($count = 0; $count < $size; $count++){
+            $string = $string[self::LAST_CHAR_POSITION]
                 . substr($string, self::FIRST_CHAR_POSITION, self::LAST_CHAR_POSITION);
+        }
+        
+        return $string;
     }
 
     /**
-     * Swaps characters in given positions in the supplied string 
+     * Swaps characters with given positions in the supplied string 
      * positions are zero based
      * @param string $string non-unicode string in which positions will be swapped
      * @param int $positionA char at given index that needs to be swapped with char at $positionB
@@ -59,6 +64,33 @@ class Permutator {
     }
     
     /**
+     * Swaps supplied characters in the supplied string.
+     * Assumption that the characters occur only once in the supplied string, 
+     * if more are present only the first occurance will be swapped 
+     * @param string $str non-unicode string in which characters will be swapped
+     * @param string $charA single char string, or char
+     * @param string $charB single char string, or char
+     */
+    public function partner(string $str, string $charA, string $charB): string {
+        Permutator::validateNonZeroString($str);
+        Permutator::validateSingleCharString($charA);
+        Permutator::validateSingleCharString($charB);
+        
+        // find positions of chars
+        $positionA = strpos($str, $charA);
+        $positionB = strpos($str, $charB);
+        
+        // convert to char array
+        $chars = str_split($str);
+        
+        // reassign chars to swapped positions
+        $chars[$positionA] = $charB;
+        $chars[$positionB] = $charA;
+        
+        return implode("", $chars);
+    }
+    
+    /**
      * Validates if the given positions is within string bounds
      * @param string $string
      * @param int $position
@@ -78,6 +110,17 @@ class Permutator {
     private function validateNonZeroString(string $str){
         if (strlen($str) <= 0) {
             throw new InvalidArgumentException(self::ZERO_STRING_EXCEPTION);
+        }
+    }
+    
+    /**
+     * Validates if the supplied string has a length of 1
+     * @param string $str
+     * @throws InvalidArgumentException
+     */
+    private function validateSingleCharString(string $str){
+        if(strlen($str) !=1 ){
+            throw new InvalidArgumentException("supplied argument {$str} does not have length of 1");
         }
     }
 
