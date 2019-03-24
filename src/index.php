@@ -3,16 +3,20 @@
 require_once '../vendor/autoload.php';
 
 use RemiDeBoer\PermutationPromenade\InputReader;
-
-$path = '..\resources\Opdracht_1_Input_Remi_de_Boer.txt';
+use RemiDeBoer\PermutationPromenade\Choreographer;
 
 try {
-
+    $path = '..\resources\Opdracht_1_Input_Remi_de_Boer.txt';
+    
     $reader = new InputReader($path);
-    echo $reader->getContent();
+    $choreographer = new Choreographer($reader->getContent());
+    
+    echo $choreographer->performDance();
     
 } catch (Exception $ex) {
+    
     echo $ex->getMessage();
+    
 }
 
 

@@ -11,9 +11,9 @@ use InvalidArgumentException;
  */
 class Permutator {
 
-    const ZERO_STRING_EXCEPTION = "can not process a string of zero length";
-    const FIRST_CHAR_POSITION = 0;
-    const LAST_CHAR_POSITION = -1;
+    private const ZERO_STRING_EXCEPTION = "can not process a string of zero length";
+    private const FIRST_CHAR_POSITION = 0;
+    private const LAST_CHAR_POSITION = -1;
 
     /**
      * Takes the last character of the incoming string puts it into
