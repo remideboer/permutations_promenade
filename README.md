@@ -1,5 +1,7 @@
 # PHP Rendition of the Permutation Promenade assignment
 
+Program entry at src/index.php
+
 ## Permutation Promenade
 
 You come upon a very unusual sight; a group of programs here appear to be dancing.
