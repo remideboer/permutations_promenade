@@ -17,10 +17,14 @@ otherwise. (For example, s3 on abcde produces cdeab).
 
 For example, with only five programs standing in a line (abcde), they could do the following
 dance:
-s1, a spin of size 1: eabcd.
-x3/4, swapping the last two programs: eabdc.
-pe/b, swapping programs e and b: baedc.
-After finishing their dance, the programs end up in order baedc.
+
+s1, a spin of size 1: eabcd
+
+x3/4, swapping the last two programs: eabdc
+
+pe/b, swapping programs e and b: baedc
+
+After finishing their dance, the programs end up in order baedc
 
 You watch the dance for a while and record their dance moves (your puzzle input). In what
 order are the programs standing after their dance?
