@@ -1,4 +1,4 @@
-# PHP Rendition of the Permutation Promenade assigment
+# PHP Rendition of the Permutation Promenade assignment
 
 ## Permutation Promenade
 
