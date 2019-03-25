@@ -7,6 +7,7 @@ There are sixteen programs in total, named a through p. They start by standing i
 stands in position 0, b stands in position 1, and so on until p, which stands in position 15.
 
 The programs' dance consists of a sequence of dance moves:
+
 **Spin**: written sX, makes X programs move from the end to the front, but maintain their order
 otherwise. (For example, s3 on abcde produces cdeab).
 
