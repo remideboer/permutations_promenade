@@ -2,6 +2,8 @@
 
 Program entry at src/index.php
 
+!Point of improvement: implement strategy pattern for the Permutator methods
+
 ## Permutation Promenade
 
 You come upon a very unusual sight; a group of programs here appear to be dancing.
